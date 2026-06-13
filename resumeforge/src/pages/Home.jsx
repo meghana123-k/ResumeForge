@@ -1,0 +1,38 @@
+import { useState } from "react";
+import "./Home.css";
+import ResumeForm from "../components/ResumeForm";
+import ResumePreview from "../components/ResumePreview";
+
+export function Home() {
+  const [resumeData, setResumeData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    github: "",
+    linkedin: "",
+    summary: "",
+
+    education: [
+      {
+        degree: "",
+        institution: "",
+        year: "",
+        cgpa: "",
+      },
+    ],
+    experience: [],
+    projects: [],
+    skills: "",
+    certifications: [],
+    achievements: [],
+  });
+
+  return (
+    <div className="container">
+      <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
+
+      <ResumePreview resumeData={resumeData} />
+    </div>
+  );
+}
+
