@@ -33,6 +33,25 @@ function ResumePreview({ resumeData }) {
           <br />
         </div>
       ))}
+      <hr />
+
+      <h2>Projects</h2>
+
+      {resumeData.projects.map((project, index) => (
+        <div key={index}>
+          <h3>{project.title}</h3>
+
+          <p>
+            <strong>Tech Stack:</strong> {project.techStack}
+          </p>
+
+          <p>{project.description}</p>
+
+          <p>{project.github}</p>
+
+          <br />
+        </div>
+      ))}
     </div>
   );
 }

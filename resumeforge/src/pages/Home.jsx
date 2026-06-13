@@ -20,8 +20,22 @@ export function Home() {
         cgpa: "",
       },
     ],
-    experience: [],
-    projects: [],
+    experience: [
+      {
+        role: "",
+        company: "",
+        duration: "",
+        description: "",
+      },
+    ],
+    projects: [
+      {
+        title: "",
+        techStack: "",
+        description: "",
+        github: "",
+      },
+    ],
     skills: "",
     certifications: [],
     achievements: [],
