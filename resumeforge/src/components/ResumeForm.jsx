@@ -1,3 +1,5 @@
+import './ResumeForm.css';
+
 function ResumeForm({ resumeData, setResumeData }) {
   const handleChange = (e) => {
     const { name, value } = e.target;

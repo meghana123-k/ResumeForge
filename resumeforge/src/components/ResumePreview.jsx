@@ -1,3 +1,5 @@
+import './ResumePreview.css'
+
 function ResumePreview({ resumeData }) {
   return (
     <div className="preview-panel">

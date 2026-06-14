@@ -1,0 +1,100 @@
+.form-panel {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+
+  overflow-y: auto;
+  max-height: 95vh;
+}
+
+.form-panel h2 {
+  margin-top: 30px;
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+  color: #1f2937;
+  position: relative;
+}
+
+.form-panel h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #7c3aed
+  );
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  border-radius: 50px;
+}
+
+.form-panel input,
+.form-panel textarea {
+  width: 100%;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.form-panel input:focus,
+.form-panel textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.form-panel textarea {
+  resize: vertical;
+}
+
+.form-card {
+  background: #fafcff;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.form-panel button {
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.form-panel > button {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form-panel > button:hover {
+  transform: translateY(-2px);
+}
+
+.remove-btn {
+  background: #ef4444;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+}

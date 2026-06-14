@@ -1,0 +1,107 @@
+.preview-panel {
+  background: white;
+  width: 210mm;
+  min-height: 297mm;
+
+  padding: 45px;
+  margin: 0 auto;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.08);
+
+  overflow-y: auto;
+
+  color: #1f2937;
+  line-height: 1.7;
+}
+
+/* Name */
+.preview-panel h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* Contact */
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.contact-section p {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Sections */
+.preview-panel h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  color: #2563eb;
+
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 6px;
+}
+
+.preview-item {
+  margin-bottom: 20px;
+}
+
+.preview-panel h3 {
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 5px;
+}
+
+.preview-panel h4 {
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.preview-panel p {
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+.preview-panel hr {
+  display: none;
+}
+
+/* Project cards */
+.preview-item {
+  padding: 12px 16px;
+  border-left: 4px solid #2563eb;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+/* Scrollbar */
+.preview-panel::-webkit-scrollbar,
+.form-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-panel::-webkit-scrollbar-thumb,
+.form-panel::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 20px;
+}
