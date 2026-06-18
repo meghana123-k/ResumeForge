@@ -1,0 +1,40 @@
+.toolbar {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 25px;
+
+  padding: 15px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px rgba(
+    0,
+    0,
+    0,
+    0.08
+  );
+}
+
+.toolbar select,
+.toolbar input,
+.toolbar button {
+  padding: 10px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background: #2563eb;
+
+  color: white;
+}

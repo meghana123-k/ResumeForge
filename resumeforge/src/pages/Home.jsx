@@ -37,16 +37,44 @@ export function Home() {
       },
     ],
     skills: "",
-    certifications: [],
-    achievements: [],
+
+    certifications: [
+      {
+        name: "",
+        issuer: "",
+        year: "",
+      },
+    ],
+
+    achievements: [
+      {
+        title: "",
+      },
+    ],
+  });
+  const [resumeStyle, setResumeStyle] = useState({
+    fontFamily: "Inter",
+    fontSize: "16px",
+    color: "#111827",
+    bold: false,
+    italic: false,
+    theme: "light",
   });
 
   return (
     <div className="container">
-      <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
+      <ResumeForm
+        resumeData={resumeData}
+        setResumeData={setResumeData}
+        resumeStyle={resumeStyle}
+        setResumeStyle={setResumeStyle}
+      />
 
-      <ResumePreview resumeData={resumeData} />
+      <ResumePreview
+        resumeData={resumeData}
+        resumeStyle={resumeStyle}
+        setResumeStyle={setResumeStyle}
+      />
     </div>
   );
 }
-

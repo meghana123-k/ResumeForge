@@ -1,6 +1,11 @@
-import './ResumeForm.css';
-
-function ResumeForm({ resumeData, setResumeData }) {
+import "./ResumeForm.css";
+import Toolbar from "./Toolbar";
+function ResumeForm({
+  resumeData,
+  setResumeData,
+  resumeStyle,
+  setResumeStyle,
+}) {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -72,7 +77,7 @@ function ResumeForm({ resumeData, setResumeData }) {
 
       return {
         ...prev,
-        education: updatedExperience,
+        experience: updatedExperience,
       };
     });
   };
@@ -110,8 +115,81 @@ function ResumeForm({ resumeData, setResumeData }) {
       };
     });
   };
+  const addCertification = () => {
+    setResumeData((prev) => ({
+      ...prev,
+
+      certifications: [
+        ...prev.certifications,
+
+        {
+          name: "",
+          issuer: "",
+          year: "",
+        },
+      ],
+    }));
+  };
+
+  const removeCertification = (index) => {
+    setResumeData((prev) => ({
+      ...prev,
+
+      certifications: prev.certifications.filter((_, i) => i !== index),
+    }));
+  };
+
+  const handleCertificationChange = (index, field, value) => {
+    setResumeData((prev) => {
+      const updated = [...prev.certifications];
+
+      updated[index][field] = value;
+
+      return {
+        ...prev,
+
+        certifications: updated,
+      };
+    });
+  };
+  const addAchievement = () => {
+    setResumeData((prev) => ({
+      ...prev,
+
+      achievements: [
+        ...prev.achievements,
+
+        {
+          title: "",
+        },
+      ],
+    }));
+  };
+
+  const removeAchievement = (index) => {
+    setResumeData((prev) => ({
+      ...prev,
+
+      achievements: prev.achievements.filter((_, i) => i !== index),
+    }));
+  };
+
+  const handleAchievementChange = (index, value) => {
+    setResumeData((prev) => {
+      const updated = [...prev.achievements];
+
+      updated[index].title = value;
+
+      return {
+        ...prev,
+
+        achievements: updated,
+      };
+    });
+  };
   return (
     <div className="form-panel">
+      <Toolbar resumeStyle={resumeStyle} setResumeStyle={setResumeStyle} />
       <h2>Resume Information</h2>
 
       <input
@@ -208,7 +286,11 @@ function ResumeForm({ resumeData, setResumeData }) {
             }
           />
 
-          <button type="button" onClick={() => removeEducation(index)}>
+          <button
+            className="remove-btn"
+            type="button"
+            onClick={() => removeEducation(index)}
+          >
             Remove
           </button>
         </div>
@@ -249,7 +331,7 @@ function ResumeForm({ resumeData, setResumeData }) {
           <input
             type="text"
             placeholder="Duration"
-            value={exp.year}
+            value={exp.duration}
             onChange={(e) =>
               handleExperienceChange(index, "duration", e.target.value)
             }
@@ -264,7 +346,11 @@ function ResumeForm({ resumeData, setResumeData }) {
             }
           />
 
-          <button type="button" onClick={() => removeExperience(index)}>
+          <button
+            className="remove-btn"
+            type="button"
+            onClick={() => removeExperience(index)}
+          >
             Remove
           </button>
         </div>
@@ -320,7 +406,11 @@ function ResumeForm({ resumeData, setResumeData }) {
             }
           />
 
-          <button type="button" onClick={() => removeProject(index)}>
+          <button
+            className="remove-btn"
+            type="button"
+            onClick={() => removeProject(index)}
+          >
             Remove
           </button>
         </div>
@@ -328,6 +418,83 @@ function ResumeForm({ resumeData, setResumeData }) {
 
       <button type="button" onClick={addProject}>
         + Add Project
+      </button>
+      <h2>Skills</h2>
+
+      <textarea
+        rows="4"
+        name="skills"
+        placeholder="React, JavaScript, Python, SQL"
+        value={resumeData.skills}
+        onChange={handleChange}
+      />
+      <h2>Certifications</h2>
+
+      {resumeData.certifications.map((cert, index) => (
+        <div key={index} className="form-card">
+          <input
+            type="text"
+            placeholder="Certification Name"
+            value={cert.name}
+            onChange={(e) =>
+              handleCertificationChange(index, "name", e.target.value)
+            }
+          />
+
+          <input
+            type="text"
+            placeholder="Issuer"
+            value={cert.issuer}
+            onChange={(e) =>
+              handleCertificationChange(index, "issuer", e.target.value)
+            }
+          />
+
+          <input
+            type="text"
+            placeholder="Year"
+            value={cert.year}
+            onChange={(e) =>
+              handleCertificationChange(index, "year", e.target.value)
+            }
+          />
+
+          <button
+            className="remove-btn"
+            type="button"
+            onClick={() => removeCertification(index)}
+          >
+            Remove
+          </button>
+        </div>
+      ))}
+
+      <button type="button" onClick={addCertification}>
+        + Add Certification
+      </button>
+      <h2>Achievements</h2>
+
+      {resumeData.achievements.map((achievement, index) => (
+        <div key={index} className="form-card">
+          <input
+            type="text"
+            placeholder="Achievement"
+            value={achievement.title}
+            onChange={(e) => handleAchievementChange(index, e.target.value)}
+          />
+
+          <button
+            className="remove-btn"
+            type="button"
+            onClick={() => removeAchievement(index)}
+          >
+            Remove
+          </button>
+        </div>
+      ))}
+
+      <button type="button" onClick={addAchievement}>
+        + Add Achievement
       </button>
     </div>
   );

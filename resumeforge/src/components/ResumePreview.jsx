@@ -1,8 +1,21 @@
-import './ResumePreview.css'
+import "./ResumePreview.css";
 
-function ResumePreview({ resumeData }) {
+function ResumePreview({ resumeData, resumeStyle }) {
   return (
-    <div className="preview-panel">
+    <div
+      className={`preview-panel ${resumeStyle.theme}`}
+      style={{
+        fontFamily: resumeStyle.fontFamily,
+
+        fontSize: resumeStyle.fontSize,
+
+        color: resumeStyle.color,
+
+        fontWeight: resumeStyle.bold ? "700" : "400",
+
+        fontStyle: resumeStyle.italic ? "italic" : "normal",
+      }}
+    >
       <h1>{resumeData.name || "Your Name"}</h1>
 
       <div className="contact-section">
@@ -54,6 +67,35 @@ function ResumePreview({ resumeData }) {
           <br />
         </div>
       ))}
+
+      <h2>Skills</h2>
+      <p>{resumeData.skills}</p>
+
+      <h2>Certifications</h2>
+
+      {resumeData.certifications.map((cert, index) => (
+        <div key={index}>
+          <p>
+            <strong>{cert.name}</strong>
+
+            {" - "}
+
+            {cert.issuer}
+
+            {" - "}
+
+            {cert.year}
+          </p>
+        </div>
+      ))}
+
+      <h2>Achievements</h2>
+
+      <ul>
+        {resumeData.achievements.map((achievement, index) => (
+          <li key={index}>{achievement.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }
